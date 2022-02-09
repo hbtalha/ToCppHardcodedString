@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/edit-copy.png</file>
+        <file>icons/app.png</file>
+    </qresource>
+</RCC>
