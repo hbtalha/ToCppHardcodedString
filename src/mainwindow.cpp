@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
             clipboard->setText(text);
     });
     connect(ui->rawString_textEdit, &QTextEdit::textChanged, this, &MainWindow::translateString);
+    connect(ui->addNewLineCheckBox, &QCheckBox::stateChanged, this, &MainWindow::translateString);
 }
 
 MainWindow::~MainWindow()
@@ -38,7 +39,7 @@ void MainWindow::translateString()
         lines[i].replace("\\", "\\\\");
         lines[i].replace("\"", "\\\"");
         lines[i].push_front("\"");
-        lines[i].push_back(( (i == (len - 1)) ? "\"" : "\\n\""));
+        lines[i].push_back(( (i != (len - 1) && ui->addNewLineCheckBox->isChecked() ) ? "\\n\"" : "\""));
     }
 
     ui->usableString_textEdit->setText(lines.join("\n"));

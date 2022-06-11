@@ -36,6 +36,13 @@
            </widget>
           </item>
           <item>
+           <widget class="QCheckBox" name="addNewLineCheckBox">
+            <property name="text">
+             <string>Add new line</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QToolButton" name="copy_button">
             <property name="text">
              <string/>
