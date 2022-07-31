@@ -11,6 +11,8 @@ MainWindow::MainWindow(QWidget *parent)
     this->setWindowIcon(QIcon(":/icons/app.png"));
     this->setWindowTitle("ToCppHardcodedString");
 
+    ui->rawString_textEdit->setAcceptRichText(false);
+
     ui->copy_button->setIcon(QIcon(":/icons/edit-copy.png"));
     connect(ui->copy_button, &QToolButton::clicked, this, [this]
     {
@@ -42,6 +44,6 @@ void MainWindow::translateString()
         lines[i].push_back(( (i != (len - 1) && ui->addNewLineCheckBox->isChecked() ) ? "\\n\"" : "\""));
     }
 
-    ui->usableString_textEdit->setText(lines.join("\n"));
+    ui->usableString_textEdit->setPlainText(lines.join("\n"));
 }
 
