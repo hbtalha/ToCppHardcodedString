@@ -2,6 +2,7 @@
 #include "./ui_mainwindow.h"
 
 #include <QClipboard>
+#include <QStyle>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -12,6 +13,12 @@ MainWindow::MainWindow(QWidget *parent)
     this->setWindowTitle("ToCppHardcodedString");
 
     ui->rawString_textEdit->setAcceptRichText(false);
+
+    ui->clear_button->setIcon(style()->standardIcon(QStyle::SP_LineEditClearButton));
+    connect(ui->clear_button, &QToolButton::clicked,  ui->rawString_textEdit, &QTextEdit::clear);
+
+    ui->paste_button->setIcon(QIcon(":/icons/edit-paste.png"));
+    connect(ui->paste_button, &QToolButton::clicked,  ui->rawString_textEdit, &QTextEdit::paste);
 
     ui->copy_button->setIcon(QIcon(":/icons/edit-copy.png"));
     connect(ui->copy_button, &QToolButton::clicked, this, [this]

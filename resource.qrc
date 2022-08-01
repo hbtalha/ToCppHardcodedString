@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>icons/edit-copy.png</file>
         <file>icons/app.png</file>
+        <file>icons/edit-paste.png</file>
     </qresource>
 </RCC>
