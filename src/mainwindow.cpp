@@ -16,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->clear_button->setIcon(style()->standardIcon(QStyle::SP_LineEditClearButton));
     connect(ui->clear_button, &QToolButton::clicked,  ui->rawString_textEdit, &QTextEdit::clear);
+    connect(ui->clear_button, &QToolButton::clicked,  ui->usableString_textEdit, &QTextEdit::clear);
 
     ui->paste_button->setIcon(QIcon(":/icons/edit-paste.png"));
     connect(ui->paste_button, &QToolButton::clicked,  ui->rawString_textEdit, &QTextEdit::paste);
