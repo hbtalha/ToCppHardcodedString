@@ -24,10 +24,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->copy_button->setIcon(QIcon(":/icons/edit-copy.png"));
     connect(ui->copy_button, &QToolButton::clicked, this, [this]
     {
-        auto clipboard = QApplication::clipboard();
         auto text = ui->usableString_textEdit->toPlainText();
         if( ! text.isEmpty())
-            clipboard->setText(text);
+            QApplication::clipboard()->setText(text);
     });
     connect(ui->rawString_textEdit, &QTextEdit::textChanged, this, &MainWindow::translateString);
     connect(ui->addNewLineCheckBox, &QCheckBox::stateChanged, this, &MainWindow::translateString);
